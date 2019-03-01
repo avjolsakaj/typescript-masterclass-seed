@@ -80,3 +80,65 @@
 // elem.addEventListener("click", handleClick, false);
 
 //#endregion
+
+//#region “typeof” Type Queries
+
+// const person = {
+//   name: "Todd",
+//   age: 27
+// };
+
+// type Person = typeof person;
+
+// const anotherPerson: Person = {
+//   name: "Avjol",
+//   age: 26
+// };
+
+//#endregion
+
+//#region “keyof” Index Type Queries
+
+// const person = {
+//   name: "Todd",
+//   age: 27
+// };
+
+// type Person = typeof person;
+// type PersonKeys = keyof Person;
+
+// type PersonTypes = Person[PersonKeys];
+
+// const anotherPerson: Person = {
+//   name: "Avjol",
+//   age: 26
+// };
+
+//#endregion
+
+//#region “keyof”, Generics and Lookup Types
+
+// const person = {
+//   name: "Todd",
+//   age: 27
+// };
+
+// type Person = typeof person;
+// type PersonKeys = keyof Person;
+// type PersonTypes = Person[PersonKeys];
+
+// function getProperity<T, K extends keyof T>(obj: T, key: K) {
+//   return obj[key];
+// }
+
+// const anotherPerson: Person = {
+//   name: "Avjol",
+//   age: 26
+// };
+
+// const personName = getProperity(anotherPerson, "name");
+// const personAge = getProperity(anotherPerson, "age");
+
+// console.log(personName, personAge);
+
+//#endregion
