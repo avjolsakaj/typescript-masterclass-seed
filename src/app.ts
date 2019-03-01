@@ -243,3 +243,165 @@
 // console.log(dictionary[0]);
 
 //#endregion
+
+//#region typeof and Type Guards
+
+// class Song {
+//   public title: string;
+//   public duration: string | number;
+
+//   constructor(title: string, duration: string | number) {
+//     this.title = title;
+//     this.duration = duration;
+//   }
+// }
+
+// function getSongDuration(item: Song) {
+//   if (typeof item.duration === "string") {
+//     return item.duration;
+//   }
+
+//   const { duration } = item;
+//   const minutes = Math.floor(duration / 60000);
+//   const seconds = (duration / 1000) % 60;
+//   return `${minutes}:${seconds}`;
+// }
+
+// const songDurationFromString = getSongDuration(new Song("Wonderful", "05:31"));
+// const songDurationFromMS = getSongDuration(new Song("Wonderful", 330000));
+
+// console.log(songDurationFromString);
+// console.log(songDurationFromMS);
+
+//#endregion
+
+//#region instanceof and Type Guards
+
+// class Song {
+//   public title: string;
+//   public duration: string | number;
+
+//   constructor(title: string, duration: string | number) {
+//     this.title = title;
+//     this.duration = duration;
+//   }
+// }
+
+// class Playlist {
+//   public name: string;
+//   public songs: Song[];
+
+//   constructor(name: string, songs: Song[]) {
+//     this.name = name;
+//     this.songs = songs;
+//   }
+// }
+
+// function getItemName(item: Song | Playlist) {
+//   if (item instanceof Song) {
+//     return item.title;
+//   }
+
+//   return item.name;
+// }
+
+// const songName = getItemName(new Song("Wondorful", 30000));
+// console.log("Song Name: ", songName);
+
+// const playlistName = getItemName(
+//   new Playlist("The Best Songs", [new Song("The Man", 30000)])
+// );
+// console.log("Playlist name:", playlistName);
+
+//#endregion
+
+//#region User Defined Type Guards
+
+// class Song {
+//   public title: string;
+//   public duration: string | number;
+
+//   constructor(title: string, duration: string | number) {
+//     this.title = title;
+//     this.duration = duration;
+//   }
+// }
+
+// class Playlist {
+//   public name: string;
+//   public songs: Song[];
+
+//   constructor(name: string, songs: Song[]) {
+//     this.name = name;
+//     this.songs = songs;
+//   }
+// }
+
+// function getItemName(item: Song | Playlist) {
+//   if (isSong(item)) {
+//     return item.title;
+//   }
+
+//   return item.name;
+// }
+
+// function isSong(item: any): item is Song {
+//   return item instanceof Song;
+// }
+
+// const songName = getItemName(new Song("Wondorful", 30000));
+// console.log("Song Name: ", songName);
+
+// const playlistName = getItemName(
+//   new Playlist("The Best Songs", [new Song("The Man", 30000)])
+// );
+// console.log("Playlist name:", playlistName);
+
+//#endregion
+
+//#region Literal Type Guards and "in" Operator
+
+// class Song {
+//   public title: string;
+//   public duration: string | number;
+//   public kind: "song";
+
+//   constructor(title: string, duration: string | number) {
+//     this.title = title;
+//     this.duration = duration;
+//     this.kind = "song";
+//   }
+// }
+
+// class Playlist {
+//   public name: string;
+//   public songs: Song[];
+//   public kind: "playlist";
+
+//   constructor(name: string, songs: Song[]) {
+//     this.name = name;
+//     this.songs = songs;
+//     this.kind = "playlist";
+//   }
+// }
+
+// function getItemName(item: Song | Playlist): string {
+//   if (item.kind === "playlist") {
+//     return item.name;
+//   }
+//   return item.title;
+// }
+
+// function isSong(item: any): item is Song {
+//   return "title" in item;
+// }
+
+// const songName = getItemName(new Song("Wondorful", 30000));
+// console.log("Song Name: ", songName);
+
+// const playlistName = getItemName(
+//   new Playlist("The Best Songs", [new Song("The Man", 30000)])
+// );
+// console.log("Playlist name:", playlistName);
+
+//#endregion
