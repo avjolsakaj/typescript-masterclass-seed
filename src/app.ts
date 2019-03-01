@@ -142,3 +142,104 @@
 // console.log(personName, personAge);
 
 //#endregion
+
+//#region “Readonly” Mapped Type
+
+// interface Person {
+//   name: string;
+//   age: number;
+// }
+
+// const person: Person = {
+//   name: "Avjol",
+//   age: 26
+// };
+
+// type MyReadonly<T> = { readonly [P in keyof T]: T[P] };
+
+// function freeze<T>(person: T): MyReadonly<T> {
+//   return Object.freeze(person);
+// }
+
+// const newPerson = freeze(person);
+
+//#endregion
+
+//#region “Partial” Mapped Type
+
+// interface Person {
+//   name: string;
+//   age: number;
+// }
+
+// function updatePerson(person: Person, prop: Partial<Person>) {
+//   return { ...person, ...prop };
+// }
+
+// const person: Person = {
+//   name: "Avjol",
+//   age: 26
+// };
+
+// updatePerson(person, { name: "ABC" });
+
+//#endregion
+
+//#region "Required" Mapped Type
+
+// interface Person {
+//   name?: string;
+//   age?: number;
+// }
+
+// type MyRequired<T> = { [P in keyof T]-?: T[P] };
+
+// function printAge(person: MyRequired<Person>) {
+//   return `${person.name} is ${person.age}`;
+// }
+
+// const person: MyRequired<Person> = {
+//   name: "Avjol",
+//   age: 26
+// };
+
+// const age = printAge(person);
+
+//#endregion
+
+//#region "Pick" Mapped Type
+
+// interface Person {
+//   name: string;
+//   age: number;
+//   address: {};
+// }
+
+// type MyPick<T, K extends keyof T> = { [P in K]: T[P] };
+
+// const person: Pick<Person, "name" | "age"> = {
+//   name: "Avjol",
+//   age: 26
+// };
+
+//#endregion
+
+//#region "Record" Mapped Type
+
+// let dictionary: Record<string, TrackStates> = {};
+
+// interface TrackStates {
+//   current: string;
+//   next: string;
+// }
+
+// const item: Record<keyof TrackStates, string> = {
+//   current: "asdfasdf",
+//   next: "q2eqsqw"
+// };
+
+// dictionary[0] = item;
+
+// console.log(dictionary[0]);
+
+//#endregion
