@@ -555,3 +555,90 @@
 // console.log(artistFactory({ name: "Avjol" }));
 
 //#endregion
+
+//#region Function Generics
+
+// class Pizza {
+//   private name: string;
+//   private price: number;
+//   constructor(name: string, price: number) {
+//     this.name = name;
+//     this.price = price;
+//   }
+// }
+
+// class List<T> {
+//   private list: Array<T>;
+
+//   addItem(item: T): void {
+//     this.list.push(item);
+//   }
+
+//   getList(): Array<T> {
+//     return this.list;
+//   }
+// }
+
+// const list = new List<Pizza>();
+
+// list.addItem(new Pizza("Pepperoni", 15));
+
+// const pizzas = list.getList();
+
+//#endregion
+
+//#region Function Overloads
+
+// function reverse(str: string): string;
+// function reverse<T>(arr: T[]): T[];
+// function reverse<T>(stringOrArray: string | T[]): string | T[] {
+//   if (typeof stringOrArray === "string") {
+//     return stringOrArray
+//       .split("")
+//       .reverse()
+//       .join("");
+//   }
+
+//   return stringOrArray.slice().reverse();
+// }
+
+// reverse("Pepperoni");
+// reverse(["bacon", "pepperoni", "chili", "mushrooms"]);
+
+//#endregion
+
+//#region Numeric Enums and Reverse Mappings
+
+// enum Sizes {
+//   Small,
+//   Medium,
+//   Large
+// }
+
+// enum Sizes {
+//   ExtraLarge = 3
+// }
+
+// console.log(Sizes[2]);
+
+//#endregion
+
+//#region String Enums and Inlining Members
+
+// enum Sizes {
+//   Small = "small",
+//   Medium = "medium",
+//   Large = "large"
+// }
+
+// let selected: Sizes = Sizes.Small;
+
+// function updateSize(size: Sizes): void {
+//   selected = size;
+// }
+
+// updateSize(Sizes.Large);
+
+// console.log(selected);
+
+//#endregion
