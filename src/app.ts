@@ -405,3 +405,153 @@
 // console.log("Playlist name:", playlistName);
 
 //#endregion
+
+//#region Intersection Types
+
+// interface Order {
+//   id: string;
+//   amount: number;
+//   currency: string;
+// }
+
+// interface Stripe {
+//   card: string;
+//   cvc: string;
+// }
+
+// interface PayPal {
+//   email: string;
+// }
+
+// type CheckoutCard = Order & Stripe;
+
+// type CheckoutPayPal = Order & PayPal;
+
+// const order: Order = {
+//   id: "xj28s",
+//   amount: 10,
+//   currency: "USD"
+// };
+
+// const orderCard: CheckoutCard = {
+//   ...order,
+//   card: "1000 2000 3000 4000",
+//   cvc: "123"
+// };
+
+// const orderPayPal: CheckoutPayPal = {
+//   ...order,
+//   email: "abc@def.com"
+// };
+
+// const assigned = Object.assign({}, order, orderCard);
+
+// console.log(assigned);
+
+//#endregion
+
+//#region Discriminated (Tagged) Unions
+
+// interface Order {
+//   id: string;
+//   amount: number;
+//   currency: string;
+// }
+
+// interface Stripe {
+//   type: "stripe";
+//   card: string;
+//   cvc: string;
+// }
+
+// interface PayPal {
+//   type: "paypal";
+//   email: string;
+// }
+
+// type CheckoutCard = Order & Stripe;
+
+// type CheckoutPayPal = Order & PayPal;
+
+// const order: Order = {
+//   id: "xj28s",
+//   amount: 10,
+//   currency: "USD"
+// };
+
+// const orderCard: CheckoutCard = {
+//   ...order,
+//   type: "stripe",
+//   card: "1000 2000 3000 4000",
+//   cvc: "123"
+// };
+
+// const orderPayPal: CheckoutPayPal = {
+//   ...order,
+//   type: "paypal",
+//   email: "abc@def.com"
+// };
+
+// type Payload = CheckoutCard | CheckoutPayPal;
+
+// function checkout(payload: Payload) {
+//   if (payload.type === "stripe") {
+//     console.log(payload.card, payload.cvc);
+//   }
+//   if (payload.type === "paypal") {
+//     console.log(payload.email);
+//   }
+// }
+
+//#endregion
+
+//#region Interfaces vs Type Aliases
+
+// interface Item{
+//     name: string;
+// }
+
+// interface Artist extends Item{
+//     songs: number;
+// }
+
+// interface Artist extends Item {
+//     getSongs(): number;
+// }
+
+// type Artist2 = {
+//     name: string;
+// } & Item;
+
+// const newArtist: Artist = {
+//     name: 'ABC',
+//     songs: 5,
+//     getSongs() {
+//         return this.songs;
+//     }
+// }
+
+//#endregion
+
+//#region Interfaces vs Classes
+
+// interface Artist {
+//   name: string;
+// }
+
+// class ArtistCreator /*implements Artist*/ {
+//   constructor(public name: string) {}
+
+//   //   public name: string;
+//   //   constructor(name: string) {
+//   //     this.name = name;
+//   //   }
+// }
+
+// function artistFactory({ name }: ArtistCreator) {
+//   return new ArtistCreator(name);
+// }
+
+// console.log(artistFactory({ name: "Avjol" }));
+
+//#endregion
