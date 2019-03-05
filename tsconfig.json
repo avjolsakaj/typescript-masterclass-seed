@@ -4,6 +4,13 @@
     "module": "commonjs",
     "lib": ["dom", "es6"],
     "outDir": "dist",
-    "noImplicitThis": true
+    "noImplicitThis": true,
+    "typeRoots": [
+      "src/@types",
+      "node_modules/@types"
+    ],
+    "declaration": true,
+    "declarationDir": "./@types",
+    // "types": ["lodash", "express"]
   }
 }

@@ -642,3 +642,40 @@
 // console.log(selected);
 
 //#endregion
+
+//#region Writing Declaration Files
+
+// import * as x from "lodash";
+
+// x.chunk([1, 2, 3, 4], 2);
+
+//#endregion
+
+//#region Augmenting Modules with Declarations
+
+// import * as x from "lodash";
+
+// x.chunk([1, 2, 3, 4], 2);
+
+// x.mixin({
+//   log(item: string) {
+//     console.log(":::", item);
+//   }
+// });
+
+// x.log("Hello!");
+
+//#endregion
+
+//#region Emitting Declaration Files from tsc
+
+// export class Foo {
+//   public name: string;
+//   constructor(name: string) {
+//     this.name = name;
+//   }
+
+//   bar(age: string) {}
+// }
+
+//#endregion
